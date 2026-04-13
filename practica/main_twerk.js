@@ -7,7 +7,7 @@ import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 let camera, scene, renderer, mixer, sound, model;
 const clock = new THREE.Clock();
 
-// Parámetros iniciales optimizados para el ITP
+// Parámetros iniciales optimizados
 const params = {
     color: 0x00ffcc,     // Cian neón inicial
     metalness: 0.1,      // Bajo para que no sea un espejo puro
@@ -28,7 +28,7 @@ function init() {
     scene = new THREE.Scene();
 
     // --- 1. CARGA DEL ESCENARIO 2K ---
-    new EXRLoader().load('ferndale_studio_12_2k.exr', function (texture) {
+    new EXRLoader().load('practica/ferndale_studio_12_2k.exr', function (texture) {
         texture.mapping = THREE.EquirectangularReflectionMapping;
         scene.background = texture;
         scene.environment = texture;
@@ -46,7 +46,7 @@ function init() {
 
     // --- 3. PISO ---
     const textureLoader = new THREE.TextureLoader();
-    const pisoTextura = textureLoader.load('Piso.jpg');
+    const pisoTextura = textureLoader.load('practica/Piso.jpg');
     pisoTextura.wrapS = pisoTextura.wrapT = THREE.RepeatWrapping;
     pisoTextura.repeat.set(10, 10);
     const pisoMesh = new THREE.Mesh(
@@ -60,7 +60,7 @@ function init() {
     // --- 4. CARGA DEL MODELO FBX ---
     const fbxLoader = new FBXLoader();
 
-    fbxLoader.load('Dancing Twerk.fbx', function (object) {
+    fbxLoader.load('practica/Dancing Twerk.fbx', function (object) {
         model = object;
         mixer = new THREE.AnimationMixer(object);
         if (object.animations.length > 0) mixer.clipAction(object.animations[0]).play();
@@ -83,7 +83,7 @@ function init() {
     const listener = new THREE.AudioListener();
     camera.add(listener);
     sound = new THREE.Audio(listener);
-    new THREE.AudioLoader().load('IMPACTA.mp3', function(buffer) {
+    new THREE.AudioLoader().load('practica/IMPACTA.mp3', function(buffer) {
         sound.setBuffer(buffer);
         sound.setLoop(true);
         sound.setVolume(0.5);
