@@ -59,8 +59,6 @@ function init() {
 
     // --- 4. CARGA DEL MODELO FBX ---
     const fbxLoader = new FBXLoader();
-    // Nota: Si el color no cambia bien, intenta comentar la línea 'map' abajo
-    const skinAcheron = textureLoader.load('../textures/Acheron.png');
 
     fbxLoader.load('Dancing Twerk.fbx', function (object) {
         model = object;
@@ -70,7 +68,6 @@ function init() {
         object.traverse(function (child) {
             if (child.isMesh) {
                 child.material = new THREE.MeshStandardMaterial({
-                    map: skinAcheron, 
                     color: params.color,
                     metalness: params.metalness,
                     roughness: params.roughness
@@ -127,4 +124,4 @@ function init() {
         if (audioCtx.state === 'suspended') audioCtx.resume();
         if (sound && !sound.isPlaying && sound.buffer) sound.play(); 
     }, { once: true });
-}   
+}
