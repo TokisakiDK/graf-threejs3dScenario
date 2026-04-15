@@ -7,26 +7,57 @@
 
 ---
 
-### 💻 3.4 Control de escenarios 3D
+### 🎮 Examen de Unidades III y IV: Videojuego 2D con Canvas
 
-| 👤 Información del Autor | 📋 Detalle |
+| 👤 Información de la Evaluación | 📋 Detalle |
 | :--- | :--- |
 | **Autor** | `Ramirez Vera David Adolfo` |
-| **Fecha** | 13 de abril de 2026 |
+| **No. de Control** | `23200883` |
+| **Profesor** | M.T.I. Luis Alejandro Santana Valadez |
+| **Fecha** | 15 de abril de 2026 |
 | **Semestre** | Enero - Junio 2026 |
 
 ---
 
-### 📑 Herramientas Utilizadas
+### 🌍 Contexto
+[cite_start]El presente proyecto se desarrolla como evaluación práctica de las Unidades III y IV de la asignatura de Graficación[cite: 3]. [cite_start]Consiste en la programación desde cero de un entorno interactivo en dos dimensiones renderizado directamente en el navegador, aplicando la API Canvas nativa de HTML5 [cite: 9] sin el uso de motores gráficos externos. 
 
-* ![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat-square&logo=three.js&logoColor=white) **Three.js** - Motor principal para el renderizado de la escena, gestión de materiales `MeshPhong` y luces direccionales.
-* ![FBX](https://img.shields.io/badge/Loader-FBXLoader-blue?style=flat-square) **FBXLoader** - Implementación específica para la importación de modelos animados y esqueletos provenientes de Mixamo y Blender.
-* ![Mixamo](https://img.shields.io/badge/Animación-Mixamo-FF9800?style=flat-square&logo=adobe&logoColor=white) **Adobe Mixamo** - Plataforma utilizada para el *Rigging* automático de personajes y la obtención de clips de animación (.fbx).
-* ![Blender](https://img.shields.io/badge/Modelado-Blender-E87D0D?style=flat-square&logo=blender&logoColor=white) **Blender** - Herramienta de edición 3D para la limpieza de mallas, empaquetado de texturas y exportación a formato binario compatible.
-* ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) **JavaScript (ES6+)** - Lógica para la manipulación dinámica de materiales, carga de texturas `.png` y comunicación entre `iframes` mediante *PostMessage*.
-* ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white) **HTML5** - Estructura del portal principal y arquitectura de navegación basada en contenedores `iframe`.
-* ![CSS3](https://img.shields.io/badge/UI_Design-CSS3-1572B6?style=flat-square&logo=css3&logoColor=white) **CSS Custom Properties** - Diseño de la interfaz "Dark Mode" del menú lateral y personalización estética del portafolio.
-* ![VSC](https://img.shields.io/badge/IDE-VS_Code-007ACC?style=flat-square&logo=visual-studio-code&logoColor=white) **VS Code** - Entorno de desarrollo para el despliegue local y pruebas de carga de activos 3D.
+### 🎯 Objetivo
+[cite_start]Desarrollar un videojuego 2D aplicando la API Canvas [cite: 9] [cite_start]que mantenga en pantalla exactamente 25 objetos simultáneos desplazándose aleatoriamente en 4 direcciones distintas (arriba, abajo, diagonal y circular)[cite: 11]. [cite_start]El sistema debe gestionar eventos de ratón para la eliminación de entidades, resolver físicas de colisión elástica con animaciones de rebote [cite: 15][cite_start], e implementar un control de versiones mediante Git publicado en GitHub Pages[cite: 6, 37].
+
+### 💡 Justificación
+La creación de este videojuego mediante Vanilla JavaScript y la API Canvas permite consolidar los fundamentos de la graficación por computadora de bajo nivel. Al programar matemáticamente el motor de físicas (teorema de Pitágoras para detección de colisiones circulares), el *Game Loop* (`requestAnimationFrame`) y la gestión de estado de los objetos, se adquiere una comprensión profunda de cómo operan internamente los motores gráficos modernos. [cite_start]Adicionalmente, el uso de Bootstrap en línea [cite: 25] asegura una interfaz de usuario responsiva y profesional.
+
+### ⚙️ Operación del Videojuego (Reglas y Jugabilidad)
+El juego operado bajo el título **"Downloading HPLang: Caza-Peluches"** consiste en un desafío contrarreloj de 60 segundos donde el usuario debe atrapar personajes en pantalla.
+
+* [cite_start]**Interacción Principal:** Al hacer **clic izquierdo** sobre un objeto, este se elimina, suma puntos al marcador y reaparece aleatoriamente en los bordes para mantener siempre 25 elementos activos[cite: 18].
+* **Habilidad Especial:** El **clic derecho** despliega una "red expansiva" que atrapa múltiples objetos en un radio determinado. Posee un tiempo de recarga de 5 segundos.
+* **Progresión (Niveles):** Cada 20 puntos obtenidos, el jugador avanza de nivel. Esto suma +15 segundos al temporizador, cambia dinámicamente la imagen de fondo y aumenta gradualmente la velocidad de los objetos.
+* **Power-Ups (Objetos Especiales):**
+  * **Bolita RGB:** Objeto raro que, al ser clickeado, libera una ráfaga de 8 proyectiles automáticos en todas direcciones (metralla) que eliminan a los enemigos que tocan.
+  * **Bolita Gris:** Objeto muy raro que ralentiza drásticamente el tiempo y la velocidad de todos los objetos en pantalla durante 5 segundos.
+* [cite_start]**Físicas:** Los objetos colisionan entre sí aplicando rebotes elásticos y emitiendo partículas de choque[cite: 15].
+
+### 📌 Conclusiones
+El desarrollo del proyecto demostró con éxito la viabilidad de crear simulaciones gráficas interactivas y escalables nativas en la web. Se superaron retos técnicos importantes, tales como la persistencia de audio continuo (`.wav`) sorteando las políticas de *autoplay* de los navegadores, y la optimización del rendimiento al gestionar decenas de partículas y objetos con imágenes redibujándose a 60 FPS (Frames Per Second). [cite_start]El uso de un entorno estructurado y el despliegue mediante repositorios garantiza el control y mantenimiento del código[cite: 6].
+
+---
+
+### 🔗 Enlaces del Proyecto
+
+* 🌐 **Despliegue (GitHub Pages):** `[Inserta aquí tu enlace de GitHub Pages]`
+* 📁 **Repositorio (Código Fuente):** `[Inserta aquí tu enlace del repositorio de GitHub]`
+
+---
+
+### 🛠️ Herramientas Utilizadas
+
+* ![Canvas API](https://img.shields.io/badge/HTML5_Canvas-E34F26?style=flat-square&logo=html5&logoColor=white) **Canvas API** - Motor de renderizado 2D nativo para el dibujado de imágenes, textos y formas geométricas en cada *frame*.
+* ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) **JavaScript (ES6+)** - Lógica orientada a objetos (clases) para el comportamiento de enemigos, temporizador, partículas y *Game Loop*.
+* [cite_start]![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=flat-square&logo=bootstrap&logoColor=white) **Bootstrap 5** - Framework CSS cargado mediante CDN para el maquetado estructurado del Header, Main y Footer[cite: 24, 25].
+* [cite_start]![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) **Git & GitHub** - Control de versiones local y alojamiento en la nube para integración y despliegue continuo (Pages)[cite: 6].
+* ![VSC](https://img.shields.io/badge/IDE-VS_Code-007ACC?style=flat-square&logo=visual-studio-code&logoColor=white) **VS Code** - Entorno de desarrollo integrado utilizado para la escritura del código.
 
 ---
 <p align="center">
